@@ -235,6 +235,40 @@ declare module FoundationSites {
     useMUI?: boolean;
   }
 
+  interface Positionable {
+    // TODO
+  }
+
+  interface IPositionableOptions {
+    position?: string;
+    alignment?: string;
+    allowOverlap?: false;
+    allowBottomOverlap?: false;
+    vOffset?: number;
+    hOffset?: number;
+  }
+
+  // https://get.foundation/sites/docs/responsive-accordion-tabs.html#javascript-reference
+  interface ResponsiveAccordionTabs {
+    open(): void;
+    close(): void;
+    toggle(): void;
+    destroy(): void;
+  }
+
+  interface IResponsiveAccordionTabsOptions extends ITabsOptions, IAccordionOptions {}
+
+  // https://get.foundation/sites/docs/responsive-navigation.html#javascript-reference
+  interface ResponsiveMenu {
+    toggleMenu(): void;
+    destroy(): void;
+  }
+
+  interface IResponsiveMenuOptions {
+    hideFor?: string;
+    animate?: boolean;
+  }
+
   // https://get.foundation/sites/docs/reveal.html#javascript-reference
   interface Reveal {
     open(): void;
@@ -280,6 +314,19 @@ declare module FoundationSites {
     decimal?: number;
     moveTime?: number;
     disabledClass?: string;
+  }
+
+  // https://get.foundation/sites/docs/smooth-scroll.html#javascript-reference
+  interface SmoothScroll {
+    scrollToLoc(): void;
+    destroy(): void;
+  }
+
+  interface ISmoothScrollOptions {
+    animationDuration?: number;
+    animationEasing?: string;
+    threshold?: number;
+    offset?: number;
   }
 
   // https://get.foundation/sites/docs/sticky.html#javascript-reference
@@ -451,11 +498,23 @@ declare module FoundationSites {
     Orbit: {
       new(element: JQuery, options?: IOrbitOptions): Orbit;
     }
+    Positionable: {
+      new (element: JQuery, options?: IPositionableOptions): Positionable;
+    }
+    ResponsiveAccordionTabs: {
+      new (element: JQuery, options?: IResponsiveAccordionTabsOptions): ResponsiveAccordionTabs;
+    }
+    ResponsiveMenu: {
+      new (element: JQuery, options?: IResponsiveMenuOptions): ResponsiveMenu;
+    }
     Reveal: {
       new(element: JQuery, options?: IRevealOptions): Reveal;
     };
     Slider: {
       new(element: JQuery, options?: ISliderOptions): Slider;
+    }
+    SmoothScroll: {
+      new(element: JQuery, options?: ISmoothScrollOptions): SmoothScroll;
     }
     Sticky: {
       new(element: JQuery, options?: IStickyOptions): Sticky;
