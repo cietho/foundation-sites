@@ -6,9 +6,12 @@
 // Original Definitions: https://github.com/samvloeberghs/foundation-sites-typings
 
 declare module FoundationSites {
+  interface Plugin {
+    destroy(): void;
+  }
 
   // https://get.foundation/sites/docs/abide.html#javascript-reference
-  interface Abide {
+  interface Abide extends Plugin {
     requiredChecked(element: JQuery): boolean;
     findFormError(element: JQuery): JQuery;
     findLabel(element: JQuery): boolean;
@@ -21,7 +24,6 @@ declare module FoundationSites {
     validateRadio(groupName: string): boolean;
     matchValidation(element: JQuery, validators: string, required: boolean): boolean;
     resetForm(): void;
-    destroy(): void;
   }
 
   interface AbideDefaults {
@@ -66,11 +68,10 @@ declare module FoundationSites {
   }
 
   // https://get.foundation/sites/docs/accordion.html#javascript-reference
-  interface Accordion {
+  interface Accordion extends Plugin {
     toggle($target: JQuery): void;
     down($target: JQuery, firstTime: boolean): void;
     up($target: JQuery): void;
-    destroy(): void;
   }
 
   interface IAccordionOptions {
@@ -80,12 +81,11 @@ declare module FoundationSites {
   }
 
   // https://get.foundation/sites/docs/accordion-menu.html#javascript-reference
-  interface AccordionMenu {
+  interface AccordionMenu extends Plugin {
     hideAll(): void;
     toggle($target: JQuery): void;
     down($target: JQuery, firstTime: boolean): void;
     up($target: JQuery): void;
-    destroy(): void;
   }
 
   interface IAccordionMenuOptions {
@@ -94,9 +94,7 @@ declare module FoundationSites {
   }
 
   // https://get.foundation/sites/docs/drilldown-menu.html#javascript-reference
-  interface Drilldown {
-    destroy(): void;
-  }
+  interface Drilldown extends Plugin {}
 
   interface IDrilldownOptions {
     backButton?: string;
@@ -106,12 +104,11 @@ declare module FoundationSites {
   }
 
   // https://get.foundation/sites/docs/dropdown.html#javascript-reference
-  interface Dropdown {
+  interface Dropdown extends Plugin {
     getPositionClass(): string;
     open(): void;
     close(): void;
     toggle(): void;
-    destroy(): void;
   }
 
   interface IDropdownOptions {
@@ -127,9 +124,7 @@ declare module FoundationSites {
   }
 
   // https://get.foundation/sites/docs/dropdown-menu.html#javascript-reference
-  interface DropdownMenu {
-    destroy(): void;
-  }
+  interface DropdownMenu extends Plugin {}
 
   interface IDropdownMenuOptions {
     disableHover?: boolean;
@@ -145,12 +140,11 @@ declare module FoundationSites {
   }
 
   // https://get.foundation/sites/docs/equalizer.html#javascript-reference
-  interface Equalizer {
+  interface Equalizer extends Plugin {
     getHeights(cb: Function): Array<any>;
     getHeightsByRow(cb: Function): Array<any>;
     applyHeight(heights: Array<any>): void;
     applyHeightByRow(groups: Array<any>): void;
-    destroy(): void;
   }
 
   interface IEqualizerOptions {
@@ -160,9 +154,8 @@ declare module FoundationSites {
   }
 
   // https://get.foundation/sites/docs/interchange.html#javascript-reference
-  interface Interchange {
+  interface Interchange extends Plugin {
     replace(path: string): void;
-    destroy(): void;
   }
 
   interface IInterchangeOptions {
@@ -170,11 +163,10 @@ declare module FoundationSites {
   }
 
   // https://get.foundation/sites/docs/magellan.html#javascript-reference
-  interface Magellan {
+  interface Magellan extends Plugin {
     calcPoints(): void;
     scrollToLoc(location: string): void;
     reflow(): void;
-    destroy(): void;
   }
 
   interface IMagellanOptions {
@@ -187,12 +179,11 @@ declare module FoundationSites {
   }
 
   // https://get.foundation/sites/docs/offcanvas.html#javascript-reference
-  interface OffCanvas {
+  interface OffCanvas extends Plugin {
     reveal(isRevealed: boolean): void;
     open(event: Event, trigger: JQuery): void;
     close(cb?: Function): void;
     toggle(event: Event, trigger: JQuery): void;
-    destroy(): void;
   }
 
   interface IOffCanvasOptions {
@@ -208,10 +199,9 @@ declare module FoundationSites {
   }
 
   // https://get.foundation/sites/docs/orbit.html#javascript-reference
-  interface Orbit {
+  interface Orbit extends Plugin {
     geoSync(): void;
     changeSlide(isLTR: boolean, chosenSlide?: JQuery, idx?: number): void;
-    destroy(): void;
   }
 
   interface IOrbitOptions {
@@ -235,9 +225,7 @@ declare module FoundationSites {
     useMUI?: boolean;
   }
 
-  interface Positionable {
-    // TODO
-  }
+  interface Positionable extends Plugin {}
 
   interface IPositionableOptions {
     position?: string;
@@ -249,19 +237,17 @@ declare module FoundationSites {
   }
 
   // https://get.foundation/sites/docs/responsive-accordion-tabs.html#javascript-reference
-  interface ResponsiveAccordionTabs {
+  interface ResponsiveAccordionTabs extends Plugin {
     open(): void;
     close(): void;
     toggle(): void;
-    destroy(): void;
   }
 
-  interface IResponsiveAccordionTabsOptions extends ITabsOptions, IAccordionOptions {}
+  interface IResponsiveAccordionTabsOptions extends Plugin, ITabsOptions, IAccordionOptions {}
 
   // https://get.foundation/sites/docs/responsive-navigation.html#javascript-reference
-  interface ResponsiveMenu {
+  interface ResponsiveMenu extends Plugin {
     toggleMenu(): void;
-    destroy(): void;
   }
 
   interface IResponsiveMenuOptions {
@@ -270,11 +256,10 @@ declare module FoundationSites {
   }
 
   // https://get.foundation/sites/docs/reveal.html#javascript-reference
-  interface Reveal {
+  interface Reveal extends Plugin {
     open(): void;
     toggle(): void;
     close(): void;
-    destroy(): void;
   }
 
   interface IRevealOptions {
@@ -295,9 +280,7 @@ declare module FoundationSites {
   }
 
   // https://get.foundation/sites/docs/slider.html#javascript-reference
-  interface Slider {
-    destroy(): void;
-  }
+  interface Slider extends Plugin {}
 
   interface ISliderOptions {
     start?: number;
@@ -317,9 +300,8 @@ declare module FoundationSites {
   }
 
   // https://get.foundation/sites/docs/smooth-scroll.html#javascript-reference
-  interface SmoothScroll {
+  interface SmoothScroll extends Plugin {
     scrollToLoc(): void;
-    destroy(): void;
   }
 
   interface ISmoothScrollOptions {
@@ -330,9 +312,7 @@ declare module FoundationSites {
   }
 
   // https://get.foundation/sites/docs/sticky.html#javascript-reference
-  interface Sticky {
-    destroy(): void;
-  }
+  interface Sticky extends Plugin {}
 
   interface IStickyOptions {
     container?: string;
@@ -349,9 +329,8 @@ declare module FoundationSites {
   }
 
   // https://get.foundation/sites/docs/tabs.html#javascript-reference
-  interface Tabs {
+  interface Tabs extends Plugin {
     selectTab(element: JQuery | string): void;
-    destroy(): void;
   }
 
   interface ITabsOptions {
@@ -363,9 +342,8 @@ declare module FoundationSites {
   }
 
   // https://get.foundation/sites/docs/toggler.html#javascript-reference
-  interface Toggler {
+  interface Toggler extends Plugin {
     toggle(): void;
-    destroy(): void;
   }
 
   interface ITogglerOptions {
@@ -373,11 +351,10 @@ declare module FoundationSites {
   }
 
   // https://get.foundation/sites/docs/tooltip.html#javascript-reference
-  interface Tooltip {
+  interface Tooltip extends Plugin {
     show(): void;
     hide(): void;
     toggle(): void;
-    destroy(): void;
   }
 
   interface ITooltipOptions {
